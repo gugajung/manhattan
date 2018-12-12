@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Fisica, Juridica
 
-# Register your models here.
+
+admin.site.register(Fisica)
+admin.site.register(Juridica)
+

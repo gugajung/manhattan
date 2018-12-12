@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Pessoa(models.Model):
+    nome = models.CharField(max_length=50)
     UF_CHOICES = (
         ('AC', 'Acre'), ('AL', 'Alagoas'), ('AP', 'Amapá'),
         ('AM', 'Amazonas'), ('BA', 'Bahia'), ('CE', 'Ceará'),
@@ -25,7 +26,6 @@ class Pessoa(models.Model):
     logradouro = models.CharField(max_length=50, verbose_name='Logradouro'
                                   , null=True, blank=True, help_text="Rua/Av/Vila etc...")
     numero = models.PositiveIntegerField(null=True, blank=True)
-    nome = models.CharField(max_length=50)
     bairro = models.CharField(max_length=50, null=True, blank=True)
     cidade = models.CharField(max_length=50, null=True, blank=True)
     estado = models.CharField(max_length=50, verbose_name='Estado',
@@ -63,16 +63,6 @@ class Juridica(Pessoa):
     razao_social = models.CharField(max_length=30,
                                     verbose_name='Razão Social', blank=True, null=True)
     cnpj = models.CharField(max_length=30, verbose_name='CNPJ')
-    rg = models.CharField(max_length=50, verbose_name='RG'
-                          , blank=True, null=True
-                          , help_text="RG do responsável. Somente Números")
-    cpf = models.CharField(max_length=50, verbose_name='CPF'
-                           , blank=True, null=True
-                           , help_text="CPF do responsável. Somente Números")
-    estado_civil = models.CharField(max_length=50,
-                                    choices=ESTADO_CIVIL_CHOICES, blank=True, null=True,
-                                    help_text='Estado Civil do Responsável')
-
     ie = models.CharField(max_length=30, verbose_name='Inscrição Estadual',
                           null=True, blank=True)
 
