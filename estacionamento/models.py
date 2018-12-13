@@ -28,6 +28,10 @@ class Parametros(models.Model):
     def __str__(self):
         return 'Parametros Gerais'
 
+    class Meta:
+        verbose_name = "Parametro"
+        verbose_name_plural = "Parametros"
+
 
 class MovRotativo(models.Model):
     checkin = models.DateTimeField(auto_now=False)

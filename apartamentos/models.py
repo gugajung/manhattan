@@ -24,3 +24,7 @@ class Apartamentos(models.Model):
     def __str__(self):
         return str(self.numero_apto)
 
+    class Meta:
+        verbose_name = "Apartamento"
+        verbose_name_plural = "Apartamentos"
+
