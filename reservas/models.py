@@ -65,8 +65,9 @@ class Mensalista(models.Model):
 class MovMensalista(models.Model):
     mensalista = models.ForeignKey(Mensalista, on_delete=models.PROTECT)
     dt_pgto = models.DateField()
-    valormensalidade = models.DecimalField(max_digits=6, decimal_places=2)
-    valorLuz =  models.DecimalField(max_digits=6, decimal_places=2)
+    valor_devido = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
+    valor_mensalidade = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
+    valor_Luz = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
 
     def __str__(self):
-        return str(self.mensalista) + ' - ' + str(self.total)
+        return str(self.mensalista)
